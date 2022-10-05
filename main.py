@@ -2,7 +2,12 @@ import discord
 import os
 import keep_alive
 
-client = discord.Client()
+client = discord.Client() 
+
+@client.event
+async def on_ready():
+  print("Запуск!")
+  await client.change_presence(status = discord.Status.idle, activity = discord.Activity(type=discord.ActivityType.watching, name="Zeta Studio"))
 
 @client.event
 async def on_message(message):
